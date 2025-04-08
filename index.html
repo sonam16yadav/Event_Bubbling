@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        body{
+            background-color: antiquewhite;
+        }
+      .parent {
+        height: 300px;
+        width: 300px;
+        border: 2px solid black;
+        display: flex;
+        margin: auto;
+        padding: 30px;
+        background-color: rgb(242, 255, 127);
+        border-radius: 5px;
+      }
+      .child {
+        height: 100px;
+        width: 300px;
+        border: 2px solid black;
+        margin-top: 100px;
+        background-color: rgb(122, 237, 14);
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        border-radius: 5px;
+      
+      }
+      pre{
+        font-size: 15px;
+      }
+      h1{
+        text-align: center;
+      }
+      p{
+        border: 1px solid black;
+        font-size: large;
+        width: 80%;
+        margin-left: 150px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1><u> EventBubbling</u> </h1>
+
+    <div class="parent">
+      <h1>parent</h1>
+      <div class="child">
+        <h1>child</h1>
+        <div>
+            
+          <button>click me</button>
+        </div>
+      </div>
+    </div>
+    
+    <p>In JavaScript, when an event (like a click or keydown) occurs on an element, it bubbles up from that element to its parent elements, eventually reaching the root of the document. This is known as event bubbling.
+
+        <p>The event first triggers on the target element (the one you interact with, e.g., a button).</p>
+        
+        <p>The event then bubbles up to the parent element, and then to its parent, and so on, until it reaches the root (document or window).</p>
+        
+        <p>Event bubbling allows us to attach a single event listener to a parent element, and handle events for all its children, which is called event delegation.</p>
+        
+        
+        
+    <script>
+      let parent = document.querySelector(".parent");
+      let child = document.querySelector(".child");
+      let button = document.querySelector("button");
+
+      parent.addEventListener("click", () => {
+        alert("parent");
+      });
+      child.addEventListener("click", () => {
+        alert("child");
+      });
+
+      button.addEventListener("click", (e) => {
+        console.log(e)
+        e.stopPropagation();
+        alert("button");
+      });
+    </script>
+  </body>
+</html>
