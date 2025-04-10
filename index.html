@@ -6,7 +6,8 @@
     <title>Document</title>
     <style>
         body{
-            background-color: antiquewhite;
+            background-image: url(https://scx1.b-cdn.net/csz/news/800a/2015/airbubblesco.jpg);
+            background-size: cover;
         }
       .parent {
         height: 300px;
@@ -15,19 +16,24 @@
         display: flex;
         margin: auto;
         padding: 30px;
-        background-color: rgb(242, 255, 127);
+        /* background-color: rgb(13, 13, 12); */
         border-radius: 5px;
+        backdrop-filter: blur(10px);
+        margin-top: 50px;
+        box-shadow: 5px 5px 5px white;
+
+
       }
       .child {
         height: 100px;
         width: 300px;
         border: 2px solid black;
         margin-top: 100px;
-        background-color: rgb(122, 237, 14);
         padding: 30px;
         display: flex;
         flex-direction: column;
         border-radius: 5px;
+        box-shadow:5px 5px 5px white;
       
       }
       pre{
@@ -45,7 +51,7 @@
     </style>
   </head>
   <body>
-    <h1><u> EventBubbling</u> </h1>
+    <h1><u> Event Bubbling</u> </h1>
 
     <div class="parent">
       <h1>parent</h1>
@@ -58,14 +64,7 @@
       </div>
     </div>
     
-    <p>In JavaScript, when an event (like a click or keydown) occurs on an element, it bubbles up from that element to its parent elements, eventually reaching the root of the document. This is known as event bubbling.
-
-        <p>The event first triggers on the target element (the one you interact with, e.g., a button).</p>
-        
-        <p>The event then bubbles up to the parent element, and then to its parent, and so on, until it reaches the root (document or window).</p>
-        
-        <p>Event bubbling allows us to attach a single event listener to a parent element, and handle events for all its children, which is called event delegation.</p>
-        
+    
         
         
     <script>
@@ -82,7 +81,6 @@
 
       button.addEventListener("click", (e) => {
         console.log(e)
-        e.stopPropagation();
         alert("button");
       });
     </script>
